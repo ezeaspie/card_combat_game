@@ -1,0 +1,107 @@
+html{
+    height:100%;
+}
+
+.card, .opponentBench .dummyCard {
+    border-radius: 5px 0 5px 0px;
+    width:220px;
+    height:300px;
+    display:flex;
+    flex-direction:column;
+    position:relative;
+    box-sizing:border-box;
+    padding:5px;
+    color:#1b1b1b;
+}
+
+.topbar{
+    display:flex;
+    justify-content: space-between;
+}
+
+.moveTop {
+    display:flex;
+    justify-content:space-between;
+}
+
+.cardFooter {
+    color:red;
+    position:absolute;
+    bottom:0;
+}
+
+.myBench,
+.opponentBench {
+    display:flex;
+    justify-content:space-around;
+}
+
+.active {
+    display:flex;
+    justify-content:space-around;
+    margin:2em;
+}
+
+.bronze {
+    background:#cd7f32;
+    background:linear-gradient(#cd7f32,#995f25);
+}
+
+.silver {
+    background:#c0c0c0;\
+    background:linear-gradient(#c0c0c0,#9c9c9c);
+}
+
+.gold {
+    background:#FFD700;
+    background:linear-gradient(#FFD700,#D4AF37)
+}
+
+.dummyCard {
+    background: url("http://opengameart.org/sites/default/files/card%20back%20blue.png");
+    background-size:100% 100%;
+    background-repeat:no-repeat;
+}
+
+.name,.health {
+    font-weight:bold;
+    font-size:1.1em;
+}
+
+.card img {
+    height:100px;
+}
+
+.moveName {
+    font-weight:bold;
+    padding-left:1em;
+}
+
+.moveDesc {
+    margin:0;
+    padding:.1em .5em;
+    font-size:.9em;
+}
+
+.myBench .card,
+.opponentBench .dummyCard{
+    width:120px;
+    height:200px;
+    font-size:50%;
+}
+
+.myBench .card img{
+    height:70px;
+}
+
+.mySide .active .move:hover{
+    font-size:1.1em;
+    cursor:pointer;
+    transition: ease .5s all;
+    color:#000;
+}
+
+
+.mySide .active .move{
+    transition: ease .5s all;
+}
