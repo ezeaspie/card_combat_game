@@ -105,3 +105,17 @@ To add more moves, add in another object and follow the same steps.
   ```
 
 Add commas after each KEY : PROPERTY pair and after each {} object.
+
+#### Pushing the object into the database.
+
+Now that you have the object ready to go, go to the bottom of the document and you will see lots of statements that look like this:
+
+```javascript
+cardDatabase.push(cardFactory(NAME));
+```
+
+Simply copy one of these lines and replace "NAME" with the name of the variable you declared for your object.
+
+```javascript
+cardDatabase.push(cardFactory(CARD_ID));
+```
