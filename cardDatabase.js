@@ -266,6 +266,48 @@ let gamesohood = {
   }],
 }
 
+let bb = {
+  name:"Yoli",
+  image: "http://icons.iconarchive.com/icons/paomedia/small-n-flat/128/sign-check-icon.png",
+  type: "bronze",
+  health: 40,
+  stars:2,
+  moves: [{
+    name:"Be Annoying",
+    description: "its a letter from my mom.",
+    cost: 1,
+    damage: 10,
+    accuracy: 100,
+  },{
+    name:"Microwave Capri Sun",
+    description: "You electrocute everyone on the field because you're dumb.",
+    cost: 2,
+    damage: 20,
+    accuracy: 100,
+  }],
+}
+
+let maddie = {
+  name:"Madeline",
+  image: "http://icons.iconarchive.com/icons/paomedia/small-n-flat/128/sign-check-icon.png",
+  type: "silver",
+  health: 120,
+  stars:4,
+  moves: [{
+    name:"Scramble Swift",
+    description: "Attack first.",
+    cost: 1,
+    damage: 20,
+    accuracy: 100,
+  },{
+    name:"Microwave Capri Sun",
+    description: "You electrocute everyone on the field because you're dumb.",
+    cost: 2,
+    damage: 20,
+    accuracy: 100,
+  }],
+}
+
 cardDatabase.push(cardFactory(julie));
 cardDatabase.push(cardFactory(rufusslave));
 cardDatabase.push(cardFactory(obe));
@@ -279,3 +321,5 @@ cardDatabase.push(cardFactory(jimmy));
 cardDatabase.push(cardFactory(yasmeen));
 cardDatabase.push(cardFactory(cira));
 cardDatabase.push(cardFactory(chris));
+cardDatabase.push(cardFactory(bb));
+cardDatabase.push(cardFactory(maddie));

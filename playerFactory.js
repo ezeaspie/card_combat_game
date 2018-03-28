@@ -6,10 +6,19 @@ const playerFactory = (name) => {
   let view = "";
   let currentCard = undefined;
 
+  const isGameOver = () => {
+    if (creatureDeck[0] == undefined && creatureBench[0] == undefined && currentCard == undefined) {
+      alert("GAME OVER! ALL YOUR CUZZES DIED.");
+      return true;
+    }
+    else {return false}
+  }
   const generateView = (currentOpponent, currentCard) => {
     let benchHTML = "";
     for (var i = 0; i < creatureBench.length; i++) {
-      benchHTML += creatureBench[i].generateHTML();
+      if (creatureBench[i] != undefined) {
+        benchHTML += creatureBench[i].generateHTML();
+      }
     }
 
     let view = `
@@ -65,5 +74,5 @@ const playerFactory = (name) => {
       return currentCard;
     }
   }
-  return {name, creatureDeck,creatureBench,drawCard, playCard, generateView,currentCard}
+  return {name, isGameOver, creatureDeck,creatureBench,drawCard, playCard, generateView,currentCard}
 }

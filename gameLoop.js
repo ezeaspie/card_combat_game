@@ -9,41 +9,117 @@ const gameLoop = (config) => {
       player1.creatureDeck.push(databaseClone[random]);
       databaseClone.splice(random, 1);
     }
-    console.log(player1.creatureDeck);
 
     for (var i = 0; i < 10; i++) {
       let random = Math.floor((Math.random() * databaseClone.length));
       player2.creatureDeck.push(databaseClone[random]);
       databaseClone.splice(random, 1);
     }
-    console.log(player2.creatureDeck);
 
-    for (var i = 1; i < 5; i++) {
-      player1.creatureBench.push(player1.creatureDeck[i]);
+    for (var i = 0; i < 4; i++) {
+      player1.drawCard(0);
     }
-    console.log(player1.creatureBench);
+
+    for (var i = 0; i < 4; i++) {
+      player2.drawCard(0);
+    }
+    console.log(player2.creatureBench);
 
   }
+  //Show hand and select a current active card for first move.
+  //Situation == "0" for running function at the start of the game.
+  //Situation == "1" for handling a card's death in battle.
+  const generateSelectActiveCardHTML = (player, situation) => {
+    let html = "<div class='selection'>";
+    for (var i = 0; i < player.creatureBench.length; i++) {
+      if (player.creatureBench[i] != undefined) {
+        html += player.creatureBench[i].generateHTML(`data-id=${i}`);
+      }
+    }
+    html += "</div>";
+    document.querySelector("#game").innerHTML = html;
+
+    let selections = document.querySelectorAll(".card");
+
+    if (situation == 0) {
+      if (player == player2) {
+        for (var i = 0; i < selections.length; i++) {
+          selections[i].addEventListener("click", function() {
+            player.currentCard = player.creatureBench[this.dataset.id];
+            player.creatureBench.splice(this.dataset.id, 1);
+            player.drawCard(0);
+            console.log(player);
+            currentTurn(player1,player2);
+          });
+        }
+      }
+      else {
+        for (var i = 0; i < selections.length; i++) {
+          selections[i].addEventListener("click", function() {
+            player.currentCard = player.creatureBench[this.dataset.id];
+            player.creatureBench.splice(this.dataset.id, 1);
+            player.drawCard(0);
+            console.log(player);
+            generateSelectActiveCardHTML(player2);
+          });
+        }
+      }
+    }
+    else {
+      for (var i = 0; i < selections.length; i++) {
+        selections[i].addEventListener("click", function() {
+          player.currentCard = player.creatureBench[this.dataset.id];
+          player.creatureBench.splice(this.dataset.id, 1);
+          player.drawCard(0);
+          console.log(player);
+          if (player==player1) {
+            currentTurn(player1,player2);
+          }
+          else {
+            currentTurn(player2,player1);
+          }
+        });
+      }
+    }
+  }
+
+  generateSelectActiveCardHTML(player1,0);
+
 
   player1.currentCard = player1.creatureDeck[0];
-  player2.currentCard = player2.creatureDeck[0]
+  player2.currentCard = player2.creatureDeck[0];
 
-  const currentTurn = (currentPlayer) => {
-    currentPlayer.generateView(player2.currentCard,player1.currentCard);
+  const currentTurn = (currentPlayer,opponent) => {
+    currentPlayer.generateView(opponent.currentCard,currentPlayer.currentCard);
     let moves = document.querySelectorAll(".mySide .active .move");
     for (var i = 0; i < moves.length; i++) {
       moves[i].addEventListener("click", function() {
+
         console.log(this.dataset.damage);
-        player2.currentCard.health -= this.dataset.damage;
-        if (player2.currentCard.health < 0) {
-          alert(`${player2.currentCard.name} died!`)
+        opponent.currentCard.takeDamage(this.dataset.damage);
+        document.querySelector(".opponentSide .active .card .health").innerHTML = `HP : ${opponent.currentCard.health}/${opponent.currentCard.maxHealth}`
+        if(opponent.currentCard.checkForDeath()){
+          opponent.currentCard = undefined;
+          if(opponent.isGameOver()){
+            console.log("What an L!");
+            document.querySelector('#game').innerHTML = `${currentPlayer.name} is the winner!`;
+            setTimeOut(() => {
+              renderStartMenu();
+            },3000);
+          }
+          else {
+            generateSelectActiveCardHTML(opponent);
+          }
         }
-        document.querySelector(".opponentSide .active .card .health").innerHTML = `HP : ${player2.currentCard.health}/${player2.currentCard.maxHealth}`
-        console.log(player2.currentCard.health);
+        else {
+          console.log(opponent.currentCard.health);
+          console.log(opponent.currentCard);
+          currentTurn(opponent,currentPlayer);
+        }
       });
     }
   }
 
-  currentTurn(player1);
+  //currentTurn(player1,player2);
 
 }

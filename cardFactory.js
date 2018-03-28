@@ -8,7 +8,20 @@ const cardFactory = (config) => {
   let type = config.type;
   let stars = config.stars;
 
-  const generateHTML = () =>{
+  const takeDamage = (damage) => {
+    health -= damage;
+    return health;
+  }
+
+  const checkForDeath = () => {
+    if (health <= 0) {
+      alert(`${name} died!`);
+      return true
+    }
+    else {return false}
+  }
+
+  const generateHTML = (option = "") =>{
     let movesHTML = "";
     for (var i = 0; i < moves.length; i++) {
       movesHTML += `
@@ -27,7 +40,7 @@ const cardFactory = (config) => {
     }
 
     let html = `
-      <div class="card ${type}">
+        <div class="card ${type}"${option}>
 
         <div class="topbar">
           <span class="name">${name}</span>
@@ -45,7 +58,6 @@ const cardFactory = (config) => {
       </div>
 
       `
-      console.log(`generated html is ${html}`);
       return html;
   }
 
@@ -73,5 +85,5 @@ const cardFactory = (config) => {
     }]
   }*/
 
-  return {config, generateHTML ,health,maxHealth, name}
+  return {config, generateHTML ,health,maxHealth, name, takeDamage, checkForDeath}
 }
