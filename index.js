@@ -21,7 +21,6 @@ const renderStartMenu = () => {
     let options = document.querySelectorAll(".allCards");
     for (var i = 0; i < options.length; i++) {
       options[i].addEventListener("click", () => {
-        console.log("caroline");
         let currentGame = gameLoop({filter:"none"});
       });
     }

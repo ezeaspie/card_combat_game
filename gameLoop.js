@@ -24,8 +24,6 @@ const gameLoop = (config) => {
     for (var i = 0; i < 4; i++) {
       player2.drawCard(0);
     }
-    console.log(player2.creatureBench);
-
   }
   //Show hand and select a current active card for first move.
   //Situation == "0" for running function at the start of the game.
@@ -97,11 +95,20 @@ const gameLoop = (config) => {
     for (var i = 0; i < moves.length; i++) {
       moves[i].addEventListener("click", function() {
 
-        console.log(this.dataset.damage);
+        console.log(this.dataset.cardid);
+        console.log(this.dataset.moveid);
 
-        opponent.currentCard.takeDamage(this.dataset.damage);
-        log.logHit(currentPlayer.currentCard,opponent.currentCard,this.dataset.damage, "dab");
-        document.querySelector(".opponentSide .active .card .health").innerHTML = `HP : ${opponent.currentCard.health}/${opponent.currentCard.maxHealth}`
+        let cardId = this.dataset.cardid;
+        let moveId = this.dataset.moveid;
+        let selectedMove = currentPlayer.currentCard.moves[moveId];
+
+        if (!opponent.currentCard.takeDamage(selectedMove.damage, selectedMove.accuracy)) {
+          log.logMiss(currentPlayer.currentCard);
+          console.log("miss!");
+        }
+        else {
+          log.logHit(currentPlayer.currentCard,opponent.currentCard,selectedMove.damage, currentPlayer.currentCard.moves[moveId].name);
+        }
 
         if(opponent.currentCard.checkForDeath()){
           log.logDeath(opponent.currentCard);

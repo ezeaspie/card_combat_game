@@ -10,25 +10,27 @@ When a player is completely out of combat cards - The game is over!
 
 ## Gameplay RoadMap
 
-1. Add Accuracy. Some moves have 100% accuracy, some have 50%, etc.
+1. ~~Add Accuracy. Some moves have 100% accuracy, some have 50%, etc.~~ (3/29/2018)
 2. Add Special Cards. Stadium, Support, Spell Cards on top of the creature/combat cards.
 3. Implement Star System, allowing for high powering moves to be used in moderation.
 4. Add ability to pass.
 5. Add abilities and card synergies.
-6. Add Documentation for adding cards to database.
+6. ~~Add Documentation for adding cards to database.~~ (3/28/2018)
 7. Add status effects to moves. (poison, paralysis, frozen, etc.)
 8. Keep track of status boosts / reductions on the bottom of the card. (attack+, attack++,defense-,etc.)
-9. Add a console to keep track of recent moves and damage and effects/etc. (3/29/2018)
+9. ~~Add a console to keep track of recent moves and damage and effects/etc.~~ (3/29/2018)
+10. Add ability to swap out cards for cards on bench.
 
 ## JavaScript/Engine RoadMap
 
-0. Restructure event code to be a method of the card or player. (3/28/2018)
-1. Create the turn system. When one person clicks an attack, the next person goes. (3/28/2018)
-2. On a card death, next player should be prompted to pick a new active card. - (3/28/2018)
-3. On a new card draw, another card should be pulled form the player's DECK to fill the empty bench if possible. - (3/28/2018)
-4. Consider restructuring the way data on cards is tracked. Right now the data is tracked with HTML data-attributes. Consider using an id to reference an object instead of storing the data on attributes.
+0. ~~Restructure event code to be a method of the card or player.~~ (3/28/2018)
+1. ~~Create the turn system. When one person clicks an attack, the next person goes.~~ (3/28/2018)
+2. ~~On a card death, next player should be prompted to pick a new active card.~~ - (3/28/2018)
+3. ~~On a new card draw, another card should be pulled form the player's DECK to fill the empty bench if possible.~~ - (3/28/2018)
+4. ~~Consider restructuring the way data on cards is tracked. Right now the data is tracked with HTML data-attributes. Consider using an id to reference an object instead of storing the data on attributes.~~ - (3/29/2018) [Added an ID attribute for cards and moves to identify and use object properties.]
 5. Update CSS and handle image insertion.
 6. Add functionality to other buttons in start menu.
+7. Hide bench cards by default, show them on hover.
 
 ## Adding Cards
 

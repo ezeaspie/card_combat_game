@@ -7,10 +7,16 @@ const cardFactory = (config) => {
   let maxHealth = config.health;
   let type = config.type;
   let stars = config.stars;
+  let id = config.id;
 
-  const takeDamage = (damage) => {
-    health -= damage;
-    return health;
+  const takeDamage = (damage, accuracy) => {
+    let randomnumber = Math.floor(Math.random() * (100 - 0 + 1)) + 0;
+    if (randomnumber < accuracy) {
+      health -= damage;
+      generateHTML();
+      return true;
+    }
+    return false;
   }
 
   const checkForDeath = () => {
@@ -25,7 +31,7 @@ const cardFactory = (config) => {
     let movesHTML = "";
     for (var i = 0; i < moves.length; i++) {
       movesHTML += `
-      <div class="move" data-damage=${moves[i].damage} data-accuracy=${moves[i].accuracy} data-cost=${moves[i].cost}>
+      <div class="move" data-moveid = "${i}" data-cardid = "${id}" data-damage=${moves[i].damage} data-accuracy=${moves[i].accuracy} data-cost=${moves[i].cost}>
         <div class="moveTop">
           <div class="moveLeft">
             <span class="moveCost">${moves[i].cost}</span><span class="moveName">${moves[i].name}</span>
@@ -40,7 +46,7 @@ const cardFactory = (config) => {
     }
 
     let html = `
-        <div class="card ${type}"${option}>
+        <div class="card ${type}" data-label= "${id}" ${option}>
 
         <div class="topbar">
           <span class="name">${name}</span>
@@ -85,5 +91,5 @@ const cardFactory = (config) => {
     }]
   }*/
 
-  return {config, generateHTML ,health,maxHealth, name, takeDamage, checkForDeath}
+  return {config, generateHTML ,health,maxHealth, name, takeDamage, checkForDeath, moves}
 }

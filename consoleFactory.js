@@ -39,7 +39,7 @@ const consoleFactory = () => {
   }
   const logMiss = (attackingCard) => {
     let messageHtml = `
-      <li class="message miss">${attackingCard} missed!</li>
+      <li class="message miss">${attackingCard.name} missed!</li>
     `
     messageArray.unshift(messageHtml);
     console.log(messageArray);
