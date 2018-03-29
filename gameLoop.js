@@ -1,6 +1,7 @@
 const gameLoop = (config) => {
   let player1 = playerFactory("Player 1");
   let player2 = playerFactory("Player 2");
+  let log = consoleFactory();
 
   if (config.filter == "none") {
     let databaseClone = cardDatabase;
@@ -91,19 +92,24 @@ const gameLoop = (config) => {
 
   const currentTurn = (currentPlayer,opponent) => {
     currentPlayer.generateView(opponent.currentCard,currentPlayer.currentCard);
+    log.generateConsoleHTML();
     let moves = document.querySelectorAll(".mySide .active .move");
     for (var i = 0; i < moves.length; i++) {
       moves[i].addEventListener("click", function() {
 
         console.log(this.dataset.damage);
+
         opponent.currentCard.takeDamage(this.dataset.damage);
+        log.logHit(currentPlayer.currentCard,opponent.currentCard,this.dataset.damage, "dab");
         document.querySelector(".opponentSide .active .card .health").innerHTML = `HP : ${opponent.currentCard.health}/${opponent.currentCard.maxHealth}`
+
         if(opponent.currentCard.checkForDeath()){
+          log.logDeath(opponent.currentCard);
           opponent.currentCard = undefined;
           if(opponent.isGameOver()){
             console.log("What an L!");
             document.querySelector('#game').innerHTML = `${currentPlayer.name} is the winner!`;
-            setTimeOut(() => {
+            setTimeout(() => {
               renderStartMenu();
             },3000);
           }

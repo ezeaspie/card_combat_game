@@ -3,6 +3,7 @@ let cardDatabase = [];
 //cardDatabase.push(cardFactory("Maeve Colbrun", "James Vernon", "Jade Vernon", "David Colbrun", "Irene Lassiter", "Yuri Maximillian", "Randall McCarthy", "Billy Creel", "Alexander Sage", "Alexis Sage", "Alexandra Sage", "Alex Sandro Sage", "Brianne Sharp", "Jimmy Jarvis", "Cynthia Palafox", "Lisandro Maldonado", "Victoria Rubin", "Violet Sandover", "Ashley Carter");
 
 let julie = {
+  id: "0",
   name:"Juliette",
   image: "http://icons.iconarchive.com/icons/paomedia/small-n-flat/128/sign-check-icon.png",
   type: "gold",
@@ -24,6 +25,7 @@ let julie = {
 }
 
 let rufusslave = {
+  id: "1",
   name:"Jace Norman",
   image: "http://icons.iconarchive.com/icons/paomedia/small-n-flat/128/sign-check-icon.png",
   type: "bronze",
@@ -45,6 +47,7 @@ let rufusslave = {
 }
 
 let obe = {
+  id: "2",
   name:"Obe",
   image: "http://icons.iconarchive.com/icons/paomedia/small-n-flat/128/sign-check-icon.png",
   type: "bronze",
@@ -66,6 +69,7 @@ let obe = {
 }
 
 let chris = {
+  id: "3",
   name:"Chris",
   image: "http://icons.iconarchive.com/icons/paomedia/small-n-flat/128/sign-check-icon.png",
   type: "bronze",
@@ -87,6 +91,7 @@ let chris = {
 }
 
 let yoli = {
+  id: "4",
   name:"Yoli",
   image: "http://icons.iconarchive.com/icons/paomedia/small-n-flat/128/sign-check-icon.png",
   type: "bronze",
@@ -108,6 +113,7 @@ let yoli = {
 }
 
 let cira = {
+  id: "5",
   name:"Cira",
   image: "http://icons.iconarchive.com/icons/paomedia/small-n-flat/128/sign-check-icon.png",
   type: "bronze",
@@ -129,6 +135,7 @@ let cira = {
 }
 
 let yasmeen = {
+  id: "6",
   name:"Yasmeen",
   image: "http://icons.iconarchive.com/icons/paomedia/small-n-flat/128/sign-check-icon.png",
   type: "bronze",
@@ -150,6 +157,7 @@ let yasmeen = {
 }
 
 let cristina = {
+  id: "7",
   name:"Cristina",
   image: "http://icons.iconarchive.com/icons/paomedia/small-n-flat/128/sign-check-icon.png",
   type: "bronze",
@@ -165,6 +173,7 @@ let cristina = {
 }
 
 let jimmy = {
+  id: "8",
   name:"Yoli",
   image: "http://icons.iconarchive.com/icons/paomedia/small-n-flat/128/sign-check-icon.png",
   type: "bronze",
@@ -186,6 +195,7 @@ let jimmy = {
 }
 
 let jakololo = {
+  id: "9",
   name:"Yoli",
   image: "http://icons.iconarchive.com/icons/paomedia/small-n-flat/128/sign-check-icon.png",
   type: "bronze",
@@ -206,6 +216,7 @@ let jakololo = {
   }],
 }
 let sonia = {
+  id: "10",
   name:"Yoli",
   image: "http://icons.iconarchive.com/icons/paomedia/small-n-flat/128/sign-check-icon.png",
   type: "bronze",
@@ -226,6 +237,7 @@ let sonia = {
   }],
 }
 let timmy = {
+  id: "11",
   name:"Yoli",
   image: "http://icons.iconarchive.com/icons/paomedia/small-n-flat/128/sign-check-icon.png",
   type: "bronze",
@@ -246,6 +258,7 @@ let timmy = {
   }],
 }
 let gamesohood = {
+  id: "12",
   name:"Yoli",
   image: "http://icons.iconarchive.com/icons/paomedia/small-n-flat/128/sign-check-icon.png",
   type: "bronze",
@@ -267,6 +280,7 @@ let gamesohood = {
 }
 
 let bb = {
+  id: "13",
   name:"Yoli",
   image: "http://icons.iconarchive.com/icons/paomedia/small-n-flat/128/sign-check-icon.png",
   type: "bronze",
@@ -288,6 +302,7 @@ let bb = {
 }
 
 let maddie = {
+  id: "14",
   name:"Madeline",
   image: "http://icons.iconarchive.com/icons/paomedia/small-n-flat/128/sign-check-icon.png",
   type: "silver",

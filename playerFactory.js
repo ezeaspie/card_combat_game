@@ -41,6 +41,8 @@ const playerFactory = (name) => {
       <div class="active">
         ${currentCard.generateHTML()}
       </div>
+      <div class="console">
+      </div>
       <div class="myBench">
         ${benchHTML}
       </div>

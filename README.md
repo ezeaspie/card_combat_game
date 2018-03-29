@@ -18,6 +18,7 @@ When a player is completely out of combat cards - The game is over!
 6. Add Documentation for adding cards to database.
 7. Add status effects to moves. (poison, paralysis, frozen, etc.)
 8. Keep track of status boosts / reductions on the bottom of the card. (attack+, attack++,defense-,etc.)
+9. Add a console to keep track of recent moves and damage and effects/etc. (3/29/2018)
 
 ## JavaScript/Engine RoadMap
 
@@ -27,6 +28,7 @@ When a player is completely out of combat cards - The game is over!
 3. On a new card draw, another card should be pulled form the player's DECK to fill the empty bench if possible. - (3/28/2018)
 4. Consider restructuring the way data on cards is tracked. Right now the data is tracked with HTML data-attributes. Consider using an id to reference an object instead of storing the data on attributes.
 5. Update CSS and handle image insertion.
+6. Add functionality to other buttons in start menu.
 
 ## Adding Cards
 
