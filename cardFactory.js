@@ -7,7 +7,9 @@ const cardFactory = (config) => {
   let maxHealth = config.health;
   let type = config.type;
   let stars = config.stars;
+  let maxStars = config.stars;
   let id = config.id;
+  let series = config.series;
 
   const takeDamage = (damage, accuracy) => {
     let randomnumber = Math.floor(Math.random() * (100 - 0 + 1)) + 0;
@@ -58,7 +60,9 @@ const cardFactory = (config) => {
         <div class="main">
         ${movesHTML}
         <div class="cardFooter">
-          ${stars}
+          <span class="stars">${stars}/${maxStars}</span>
+          <span class="status"></span>
+          <span class="series">${series}</span>
         </div>
         </div>
       </div>

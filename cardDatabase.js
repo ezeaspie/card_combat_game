@@ -1,8 +1,7 @@
 let cardDatabase = [];
-//["Madeline Harbour","Julian Gaitan","Juliette Sandover","Ada Lima", "Clarissa Harbour", "Damien Schmidt", "Maxine Rubin", "Robert Silva", "Jacques Harbour", "Harry Weathers", "Lorena Rodriguez", "Alfonso Lima", "Estefania Lima", "Austin Harper", "Nancy Petrov", "Caspar Rubin", "Maya Slawson", "Alceste Lucy", "Edward Blake", "Selena Rasoca"];
-//cardDatabase.push(cardFactory("Maeve Colbrun", "James Vernon", "Jade Vernon", "David Colbrun", "Irene Lassiter", "Yuri Maximillian", "Randall McCarthy", "Billy Creel", "Alexander Sage", "Alexis Sage", "Alexandra Sage", "Alex Sandro Sage", "Brianne Sharp", "Jimmy Jarvis", "Cynthia Palafox", "Lisandro Maldonado", "Victoria Rubin", "Violet Sandover", "Ashley Carter");
 
 let julie = {
+  series: "base",
   id: "0",
   name:"Juliette",
   image: "http://icons.iconarchive.com/icons/paomedia/small-n-flat/128/sign-check-icon.png",
@@ -23,11 +22,13 @@ let julie = {
     accuracy: 100,
   }],
 }
+cardDatabase.push(cardFactory(julie));
 
 let rufusslave = {
+  series: "base",
   id: "1",
   name:"Jace Norman",
-  image: "http://icons.iconarchive.com/icons/paomedia/small-n-flat/128/sign-check-icon.png",
+  image: "https://www.bing.com/th?id=A5ef5d49dbcdc6fa6c0a590f3ff285b90&w=110&h=110&c=12&rs=1&qlt=80&pcl=f9f9f9&cdv=1&pid=16.2",
   type: "bronze",
   health: 40,
   stars:2,
@@ -45,8 +46,10 @@ let rufusslave = {
     accuracy: 50,
   }],
 }
+cardDatabase.push(cardFactory(rufusslave));
 
 let obe = {
+  series: "base",
   id: "2",
   name:"Obe",
   image: "http://icons.iconarchive.com/icons/paomedia/small-n-flat/128/sign-check-icon.png",
@@ -67,11 +70,13 @@ let obe = {
     accuracy: 100,
   }],
 }
+cardDatabase.push(cardFactory(obe));
 
 let chris = {
+  series: "base",
   id: "3",
   name:"Chris",
-  image: "http://icons.iconarchive.com/icons/paomedia/small-n-flat/128/sign-check-icon.png",
+  image: "https://tse1.mm.bing.net/th?id=OIP.JrNJ010RD4SFA_2OuHPUbQHaFw&w=229&h=178&c=7&o=5&pid=1.7",
   type: "bronze",
   health: 100,
   stars:1,
@@ -89,11 +94,13 @@ let chris = {
     accuracy: 10,
   }],
 }
+cardDatabase.push(cardFactory(chris));
 
 let yoli = {
+  series: "base",
   id: "4",
   name:"Yoli",
-  image: "http://icons.iconarchive.com/icons/paomedia/small-n-flat/128/sign-check-icon.png",
+  image: "./images/yoli.jpg",
   type: "bronze",
   health: 40,
   stars:2,
@@ -111,8 +118,10 @@ let yoli = {
     accuracy: 100,
   }],
 }
+cardDatabase.push(cardFactory(yoli));
 
 let cira = {
+  series: "base",
   id: "5",
   name:"Cira",
   image: "http://icons.iconarchive.com/icons/paomedia/small-n-flat/128/sign-check-icon.png",
@@ -133,8 +142,10 @@ let cira = {
     accuracy: 100,
   }],
 }
+cardDatabase.push(cardFactory(cira));
 
 let yasmeen = {
+  series: "base",
   id: "6",
   name:"Yasmeen",
   image: "http://icons.iconarchive.com/icons/paomedia/small-n-flat/128/sign-check-icon.png",
@@ -155,8 +166,10 @@ let yasmeen = {
     accuracy: 100,
   }],
 }
+cardDatabase.push(cardFactory(yasmeen));
 
 let cristina = {
+  series: "base",
   id: "7",
   name:"Cristina",
   image: "http://icons.iconarchive.com/icons/paomedia/small-n-flat/128/sign-check-icon.png",
@@ -171,8 +184,10 @@ let cristina = {
     accuracy: 100,
   }],
 }
+cardDatabase.push(cardFactory(cristina));
 
 let jimmy = {
+  series: "base",
   id: "8",
   name:"Yoli",
   image: "http://icons.iconarchive.com/icons/paomedia/small-n-flat/128/sign-check-icon.png",
@@ -193,8 +208,10 @@ let jimmy = {
     accuracy: 100,
   }],
 }
+cardDatabase.push(cardFactory(jimmy));
 
 let jakololo = {
+  series: "base",
   id: "9",
   name:"Yoli",
   image: "http://icons.iconarchive.com/icons/paomedia/small-n-flat/128/sign-check-icon.png",
@@ -215,7 +232,10 @@ let jakololo = {
     accuracy: 100,
   }],
 }
+cardDatabase.push(cardFactory(jakololo));
+
 let sonia = {
+  series: "base",
   id: "10",
   name:"Yoli",
   image: "http://icons.iconarchive.com/icons/paomedia/small-n-flat/128/sign-check-icon.png",
@@ -236,7 +256,10 @@ let sonia = {
     accuracy: 100,
   }],
 }
+cardDatabase.push(cardFactory(sonia));
+
 let timmy = {
+  series: "base",
   id: "11",
   name:"Yoli",
   image: "http://icons.iconarchive.com/icons/paomedia/small-n-flat/128/sign-check-icon.png",
@@ -257,7 +280,10 @@ let timmy = {
     accuracy: 100,
   }],
 }
+cardDatabase.push(cardFactory(timmy));
+
 let gamesohood = {
+  series: "base",
   id: "12",
   name:"Yoli",
   image: "http://icons.iconarchive.com/icons/paomedia/small-n-flat/128/sign-check-icon.png",
@@ -278,8 +304,10 @@ let gamesohood = {
     accuracy: 100,
   }],
 }
+cardDatabase.push(cardFactory(gamesohood));
 
 let bb = {
+  series: "base",
   id: "13",
   name:"Yoli",
   image: "http://icons.iconarchive.com/icons/paomedia/small-n-flat/128/sign-check-icon.png",
@@ -300,8 +328,11 @@ let bb = {
     accuracy: 100,
   }],
 }
+cardDatabase.push(cardFactory(bb));
+
 
 let maddie = {
+  series: "base",
   id: "14",
   name:"Madeline",
   image: "http://icons.iconarchive.com/icons/paomedia/small-n-flat/128/sign-check-icon.png",
@@ -322,19 +353,8 @@ let maddie = {
     accuracy: 100,
   }],
 }
-
-cardDatabase.push(cardFactory(julie));
-cardDatabase.push(cardFactory(rufusslave));
-cardDatabase.push(cardFactory(obe));
-cardDatabase.push(cardFactory(yoli));
-cardDatabase.push(cardFactory(obe));
-cardDatabase.push(cardFactory(gamesohood));
-cardDatabase.push(cardFactory(cristina));
-cardDatabase.push(cardFactory(jakololo));
-cardDatabase.push(cardFactory(sonia));
-cardDatabase.push(cardFactory(jimmy));
-cardDatabase.push(cardFactory(yasmeen));
-cardDatabase.push(cardFactory(cira));
-cardDatabase.push(cardFactory(chris));
-cardDatabase.push(cardFactory(bb));
 cardDatabase.push(cardFactory(maddie));
+
+
+
+/* FEED THE CARD OBJECT YOU MADE BELOW THIS LINE */

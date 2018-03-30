@@ -1,6 +1,60 @@
 html{
     height:100%;
+    background: #dad6d6;
 }
+/*Menu Styling*/
+
+h1 {
+    font-family: 'IBM Plex Sans Condensed', sans-serif;
+    text-align: center;
+}
+
+.menuOption, button {
+    border:none;
+    font-family: 'Lato', sans-serif;
+    text-align: center;
+    padding:1em;
+    margin:.5em;
+    border-radius:5px 15px 5px 15px;
+    background: #92bfb1;
+    -webkit-transition: ease-in .3s all;
+    transition: ease-in .3s all;
+}
+
+.menuOption:hover,
+button:hover {
+    cursor: pointer;
+    background: #6b8b81;
+    -webkit-transition: ease-in .3s all;
+    transition: ease-in .3s all;
+}
+
+button {
+    border-radius: 10px 5px 10px 5px;
+    min-width: 10em;
+}
+
+
+.display {
+    display: flex;
+    flex-wrap:wrap;
+    justify-content: space-around;
+}
+
+.display .card {
+    -webkit-transition:ease .3s all;
+    transition:ease .3s all;
+    margin: 1em 0;
+}
+
+.display .card:hover {
+    -webkit-transition:ease .3s all;
+    transition:ease .3s all;
+    cursor: pointer;
+    width:230px;
+    height:310px;
+}
+/*Card and Comba Screen Styling */
 
 .card, .opponentBench .dummyCard {
     border-radius: 5px 0 5px 0px;
@@ -12,28 +66,42 @@ html{
     box-sizing:border-box;
     padding:5px;
     color:#1b1b1b;
+    box-shadow: 10px 10px 15px #888888;
 }
 
 .topbar{
     display:flex;
     justify-content: space-between;
+    font-family: 'IBM Plex Sans Condensed', sans-serif;
+}
+
+.main, p {
+
+    font-family: 'Lato', sans-serif;
 }
 
 .moveTop {
     display:flex;
     justify-content:space-between;
+    font-family: 'IBM Plex Sans Condensed', sans-serif;
 }
 
 .cardFooter {
-    color:red;
     position:absolute;
     bottom:0;
+    width:94%;
+    display: flex;
+    justify-content: space-between;
 }
 
 .myBench,
 .opponentBench {
     display:flex;
     justify-content:space-around;
+}
+
+.myBench .card {
+  display: none;
 }
 
 .active {
@@ -48,13 +116,22 @@ html{
 }
 
 .silver {
-    background:#c0c0c0;\
+    background:#c0c0c0;
     background:linear-gradient(#c0c0c0,#9c9c9c);
 }
 
 .gold {
     background:#FFD700;
-    background:linear-gradient(#FFD700,#D4AF37)
+    background:linear-gradient(#FFD700,#D4AF37);
+}
+
+.legendary {
+    background: linear-gradient(#4ecdc4,#556270)
+}
+
+.mega {
+    background: linear-gradient(#be93c5,#7bc6cc);
+
 }
 
 .dummyCard {
@@ -70,6 +147,8 @@ html{
 
 .card img {
     height:100px;
+    border:double 3px #000;
+    border-radius:5px;
 }
 
 .moveName {
@@ -105,3 +184,65 @@ html{
 .mySide .active .move{
     transition: ease .5s all;
 }
+
+.myBench .card {
+   -webkit-transition: ease .5s all;
+    position:relative;
+}
+
+.myBench .card:hover {
+    -webkit-transition: ease .5s all;
+    position: relative;
+    bottom:15px;
+    cursor: pointer;
+}
+
+.selection {
+    display: flex;
+    flex-wrap:wrap;
+    justify-content: space-around;
+}
+
+.selection .card {
+    margin: 10px 50px;
+    -webkit-transition: ease .3s all;
+}
+
+.selection .card:hover {
+    cursor: pointer;
+    width:230px;
+    height:310px;
+}
+
+.console {
+    background: #f4ac45;
+}
+.console .main {
+    text-align: center;
+    font-weight:bold;
+    margin: 0;
+}
+
+.console p {
+    margin:0;
+    padding: .5em;
+}
+.console ul {
+    margin:0;
+    background: #f8ca88;
+    list-style: none;
+    padding:0;
+}
+
+.message {
+    padding-left:4em;
+}
+.death{
+    background:#a61c3c;
+    color: #dad6d6;
+    font-weight:bold;
+}
+.hit {
+    background: #6b8b81;
+}
+

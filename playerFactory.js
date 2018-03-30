@@ -43,12 +43,21 @@ const playerFactory = (name) => {
       </div>
       <div class="console">
       </div>
+      <button class="show">Click to show bench</button>
       <div class="myBench">
         ${benchHTML}
       </div>
     </div>
     `
     document.querySelector("#game").innerHTML = view;
+
+    let cards = document.querySelectorAll(".myBench .card");
+
+    document.querySelector(".show").addEventListener("click", function(){
+      for (var i = 0; i < cards.length; i++) {
+        cards[i].style.display = "flex";
+      }
+    });
   }
 
   const drawCard = (type) => {

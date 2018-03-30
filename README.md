@@ -20,6 +20,7 @@ When a player is completely out of combat cards - The game is over!
 8. Keep track of status boosts / reductions on the bottom of the card. (attack+, attack++,defense-,etc.)
 9. ~~Add a console to keep track of recent moves and damage and effects/etc.~~ (3/29/2018)
 10. Add ability to swap out cards for cards on bench.
+11. Add MEGA EVOLUTIONS.
 
 ## JavaScript/Engine RoadMap
 
@@ -28,60 +29,76 @@ When a player is completely out of combat cards - The game is over!
 2. ~~On a card death, next player should be prompted to pick a new active card.~~ - (3/28/2018)
 3. ~~On a new card draw, another card should be pulled form the player's DECK to fill the empty bench if possible.~~ - (3/28/2018)
 4. ~~Consider restructuring the way data on cards is tracked. Right now the data is tracked with HTML data-attributes. Consider using an id to reference an object instead of storing the data on attributes.~~ - (3/29/2018) [Added an ID attribute for cards and moves to identify and use object properties.]
-5. Update CSS and handle image insertion.
-6. Add functionality to other buttons in start menu.
-7. Hide bench cards by default, show them on hover.
+5. ~~Update CSS and handle image insertion.~~ (3/30/2018)
+6. ~~Add functionality to other buttons in start menu.~~ (3/30/2018)
+7. ~~Hide bench cards by default, show them on hover.~~ (3/30/2018)
 
 ## Adding Cards
 
-To add into the game, you need to go through a two step process of creating an object with all the custom details for the new card, and then feeding that object into a factory to make it usable in the game.
+To add into the game, you need to go through a two step process of:
+1. creating an object with all the custom details for the new card, and then
+2. feeding that object into a factory to make it usable in the game.
 
-#### cardDatabase.js and basic structure.
+The configuration object has 2 main parts, the info for the card itself, and the info for the card's moves.
 
-In the cardDatabase.js file, there are three types of variables. One is the variable for the database itself, the other is a series of configuration objects for each card, and towards the bottom are the functions for adding that card into the database.
+#### cardDatabase.js
+
+The cardDatabase.js file is where you want to add your code.
+
+Open the file and scroll to the bottom of the document. This is where you should add your code.
 
 #### Declaring a variable for your card object.
 
 Declare a variable for your object like so :
 ```javascript
-var CARD_ID = {};
+let CARD_ID = {};
 ```
 CARD_ID can be any name you like, just make sure it's unique and hasn't been used in the database before. (You can use ctrl+f to see if the variable name has been used.)
 
-#### Setting up the configuration object.
+Make sure you add the semi-colon at the end of the line.
+
+#### Putting Card Info into the Configuration Object.
+Now we have to place our key:value pairs into the object.
+
+Please see the example object below.
+
+The structure looks like this:
+
 ```javascript
-let CARD_ID = {
-  name:"YOUR CARD NAME",
-  image: "LINK TO THE IMAGE THE CARD WILL USE", //Make sure the link ends in .png, .jpg, etc.
+let harley = {
+  series: "base", //Unless otherwise specified, use "base" as the value.
+  id: 71, //Look at the id of the card above your new card. Add one to that number. This is the card id.
+  name:"Harley", //This is the name that will appear on the card in-game.
+  image: "./images/harley.jpg", //This can be a link to an image from the internet, or you can upload your own image to the image folder and link to that. More on images below.
   type: "bronze", //Choose from bronze, silver, gold, legendary. Make sure the names are LOWERCASE.
-  health: 200, //This must be a number. DO NOT add "" around the number.
-  stars:4, //This must also be a number. NO QUOTES.
-  moves: [{ //Moves are declared in an array of objects. Type moves = []. Then inside the brackets, add your objects like so: [{...stuff},{...stuff},{...stuff}]
-    name:"NAME OF MOVE",
-    description: "This move does: ...", //Keep the move description short please.
-    cost: 2, //Number. Max of 5.
-    damage: 30, //Number.
-    accuracy: 100, //This must be a number between 0-100.
-  },{
-    name:"Close Combat",
-    description: "Dish out a beating!",
-    cost: 4,
-    damage: 90,
-    accuracy: 100,
-  }],
+  health: 60, //This is the max health for the card. DO NOT add "" around the number.
+  stars:4, //The max number of stars a card can use by default. Number 1-5 NO QUOTES.
+  moves: [],
 }
 ```
 
+That's the basic structure of the object. A few things to remember:
+
+1. At the end of every key:value pair remember to add a comma.
+2. id, health, and stars MUST be numbers. DO NOT ADD QUOTATION MARKS AROUND THEM.
+3. Add quotations around every other value.
+
+#### Adding Moves to a Card
+
 Moves are declared in objects within an array. Start with:
+```javascript
+ moves: [],
 ```
- moves: []
-```
-From there, add in an object literal ({}) like this:
-  ```
+From there, add in an object literal ({ }) like this:
+  ```javascript
   moves: [{}]
   ```
-Then start to add in the details of the move.
+Add in more objects if you plan to have more than one move.
+  ```javascript
+  moves: [{},{}]
   ```
+Then, inside an object, start to add in the details of the move.
+  ```javascript
   moves: [{
     name: "Blah",
     description: "Blah Blah",
@@ -90,8 +107,8 @@ Then start to add in the details of the move.
     accuracy: 20,
     }]
   ```
-To add more moves, add in another object and follow the same steps.
-  ```
+To add more moves, open another object and follow the same steps.
+  ```javascript
   moves: [{
     name: "Blah",
     description: "Blah Blah",
@@ -108,18 +125,40 @@ To add more moves, add in another object and follow the same steps.
     }]
   ```
 
-Add commas after each KEY : PROPERTY pair and after each {} object.
+REMEMBER TO ADD COMMAS after each KEY : VALUE pair and after each { } object.
 
-#### Pushing the object into the database.
+#### Pushing the object into the database
 
-Now that you have the object ready to go, go to the bottom of the document and you will see lots of statements that look like this:
+Now that you have the object ready to go, copy this code:
 
 ```javascript
 cardDatabase.push(cardFactory(NAME));
 ```
+Paste it directly under your card object.
+(below the last "}". See the other cards in the database for an example.)
 
-Simply copy one of these lines and replace "NAME" with the name of the variable you declared for your object.
+Replace NAME with the name of your card VARIABLE (Not your card's "name" value.)
 
 ```javascript
-cardDatabase.push(cardFactory(CARD_ID));
+let rufusdweeb = { // <-- THIS IS THE VARIABLE NAME. USE THIS.
+  ...
+  name: "Jace Norman", // <-- DO NOT USE THIS NAME.
+  ...
+  }
 ```
+Save the file and commit your changes. If everything worked, your card should be in the game!
+
+#### More on images
+
+You can choose to use an image link. (Image from google or another site.)
+```
+ image: "https://tse1.mm.bing.net/th?id=OIP.JrNJ010RD4SFA_2OuHPUbQHaFw&w=229&h=178&c=7&o=5&pid=1.7"
+```
+
+If your image isn't on the internet, you can add your images to the 'images' folder and then use a relative link like this:
+
+```
+  image: "./images/FILENAME"
+```
+
+If adding an image to the folder, make sure you use a simple name with NO SPACES.

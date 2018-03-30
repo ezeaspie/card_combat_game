@@ -29,7 +29,7 @@ const gameLoop = (config) => {
   //Situation == "0" for running function at the start of the game.
   //Situation == "1" for handling a card's death in battle.
   const generateSelectActiveCardHTML = (player, situation) => {
-    let html = "<div class='selection'>";
+    let html = "<p>Select a card</p><div class='selection'>";
     for (var i = 0; i < player.creatureBench.length; i++) {
       if (player.creatureBench[i] != undefined) {
         html += player.creatureBench[i].generateHTML(`data-id=${i}`);
@@ -117,8 +117,8 @@ const gameLoop = (config) => {
             console.log("What an L!");
             document.querySelector('#game').innerHTML = `${currentPlayer.name} is the winner!`;
             setTimeout(() => {
-              renderStartMenu();
-            },3000);
+              location.reload();
+            },2000);
           }
           else {
             generateSelectActiveCardHTML(opponent);
