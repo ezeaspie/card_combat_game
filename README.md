@@ -32,6 +32,7 @@ When a player is completely out of combat cards - The game is over!
 5. ~~Update CSS and handle image insertion.~~ (3/30/2018)
 6. ~~Add functionality to other buttons in start menu.~~ (3/30/2018)
 7. ~~Hide bench cards by default, show them on hover.~~ (3/30/2018)
+8. Add a screen that allows time to switch between players when selecting a card.
 
 ## Adding Cards
 
